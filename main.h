@@ -1,26 +1,15 @@
-#ifndef MAIN_H
-#define MAIN_H
-#include <stdarg.h>
-#include <unistd.h>
+#ifndef PRINTF_H
+#define PRINTF_H
+
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <limits.h>
 
-/**
- * struct specifier - Struct specifier
- *
- * @str: The format specifier
- * @func: The function associated
- */
-typedef struct specifier
-{
-	char str;
-	int (*func)(va_list *);
-
-} fmt_spec;
-
+void _sprintf(const char *str);
 int _printf(const char *format, ...);
-int (*get_func(char s))(va_list *);
-int print_char(va_list *c);
-int print_str(va_list *str);
-int _strlen(char *str);
+void _count(int *ptr, char *str);
+char *_itoa(int num);
 
-#endif /* MAIN_H */
+#endif
