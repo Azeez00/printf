@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _count - count the string 
+ * _count - count the string
  * @ptr: counter
  * @str: string to count
  */

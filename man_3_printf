@@ -2,7 +2,7 @@
 .TH printf 1 "April 2022" "Printf Project" "ALX AFRICA"
 .SH NAME
 .P
-_printf() 
+_printf()
 .SH SYNOPSIS
 .P
 _printf() - %[dcisbuxop]

@@ -14,7 +14,7 @@ void _sprintf(const char *str)
 	newstr = malloc(sizeof(char) * (len + 1));
 
 	if (newstr == NULL)
-		exit (1);
+		exit(1);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{

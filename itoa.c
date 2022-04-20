@@ -21,7 +21,7 @@ char *_itoa(int num)
 	str = malloc(sizeof(char) * len);
 	if (str == NULL)
 	{
-		exit (1);
+	exit(1);
 	}
 	else if (k == 1)
 	{
