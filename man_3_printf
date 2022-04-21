@@ -1,6 +1,6 @@
 .\" Manpage for _printf.
 .TH _printf "18 April 2022" "version 1.0" "Program Manual for _printf"
-.SH NAME 
+.SH NAME
 _printf - formatted output conversion and print data.
 .SH SYNOPSIS
 .nf
@@ -11,17 +11,17 @@ _printf - formatted output conversion and print data.
 .PP
 .SH DESCRIPTION
 The _printf function prints ARGUMENT(s) according to FORMAT, or executes according to the OPTION to the standard output. The function writes the \
-output under the control of a format string which specifies how subsequent arguement(s) are accessed via the variable-lenght argument facilities of stdargs(3) are\ 
+output under the control of a format string which specifies how subsequent arguement(s) are accessed via the variable-lenght argument facilities of stdargs(3) are\
 converted for output.
-.SH 
+.SH
 .IP FORMAT:
-The format string is a character string, beginning and ending in its initial shift state, if any. Format string is composed of zero or more directives: ordinary characters \ 
-which are copied unchanged to the output stream; and conversion specification (%) each of which results in fetching zero or more subsequent arguments. 
+The format string is a character string, beginning and ending in its initial shift state, if any. Format string is composed of zero or more directives: ordinary characters \
+which are copied unchanged to the output stream; and conversion specification (%) each of which results in fetching zero or more subsequent arguments.
 .SH
 .IP SPECIFIERS:
 Conversion specification is introduced by % and ends with a conversion specifier. Conversion specifiers specifies the type of conversion to be applied. \
 In between there may be zero or more flags and an optional length modifier. The conversion specifiers of the _printf() function are:
-.TP 
+.TP
 .B c
 .R The \fIint\fR argument is converted to an \fIunsigned char\fR, and the resulting character is written.
 .TP
@@ -35,7 +35,7 @@ In between there may be zero or more flags and an optional length modifier. The 
 .R The \fIunsigned int\fR argument is converted to a binary.
 .TP
 .B o, u, x, X
-.R The \fIunsigned int\fR argument is converted to unsigned octal \fBo\fR (base 8), unsigned decimal \fBu\fR (base 10), or unsigned hexadecimal \fBx\fR and \fBX\fR notation (base 16).\ 
+.R The \fIunsigned int\fR argument is converted to unsigned octal \fBo\fR (base 8), unsigned decimal \fBu\fR (base 10), or unsigned hexadecimal \fBx\fR and \fBX\fR notation (base 16).\
 The letters abcdef are used for \fBx\fR conversions; the letters ABCDEF are used for \fBX\fR conversions.
 .TP
 .B % %%
@@ -62,7 +62,7 @@ The character % is followed by zero or more of the following flags:
 .TP
 .B +
 .R A sign \fB+\fR or \fB-\fR will be placed before a number followed by a signed conversion.
-.TP 
+.TP
 .B ' '
 .R A \fI(space)\fR blank space should be left before a positive number (or empty string) produced by a signed conversion.
 .SH
@@ -88,7 +88,7 @@ int main(void)
 	int length;
 
 	_printf(''%s'', ''We did it!'');
-	
+
 	length = _printf(''We did it! contains %d characters'', length);
 
 	return (0);
