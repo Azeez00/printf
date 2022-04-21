@@ -1,61 +1,44 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#include "main.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-/**
- * struct print - struct for printer functions
- * @type_arg: identifier
- * @f: pointer to a printer functions
- *
- * Description: struct that stores pointers to a
- * printer functions.
- */
-typedef struct print
+char *_itoa(int num)
 {
-	char *type_arg;
-	int (*f)(va_list, char *, unsigned int);
-} print_t;
+	char *str;
+	int i = 1, m, k = 0, len, power, keep;
+	len = num < 0 ? 3 : 2;
+	k = num < 0 ? 1 : 0;
+	num *= num < 0 ? -1 : 1;
 
-int _printf(const char *format, ...);
-int print_prg(va_list __attribute__((unused)), char *, unsigned int);
-int print_chr(va_list arguments, char *buf, unsigned int ibuf);
-int print_str(va_list arguments, char *buf, unsigned int ibuf);
-int print_int(va_list arguments, char *buf, unsigned int ibuf);
-int print_bnr(va_list arguments, char *buf, unsigned int ibuf);
-int print_unt(va_list arguments, char *buf, unsigned int ibuf);
-int print_oct(va_list arguments, char *buf, unsigned int ibuf);
-int print_hex(va_list arguments, char *buf, unsigned int ibuf);
-int print_upx(va_list arguments, char *buf, unsigned int ibuf);
-int print_usr(va_list arguments, char *buf, unsigned int ibuf);
-int print_add(va_list arguments, char *buf, unsigned int ibuf);
-int print_rev(va_list arguments, char *buf, unsigned int ibuf);
-int print_rot(va_list arguments, char *buf, unsigned int ibuf);
-int prinlint(va_list arguments, char *buf, unsigned int ibuf);
-int prinlunt(va_list arguments, char *buf, unsigned int ibuf);
-int prinloct(va_list arguments, char *buf, unsigned int ibuf);
-int prinlhex(va_list arguments, char *buf, unsigned int ibuf);
-int prinlupx(va_list arguments, char *buf, unsigned int ibuf);
-int prinhint(va_list arguments, char *buf, unsigned int ibuf);
-int prinhunt(va_list arguments, char *buf, unsigned int ibuf);
-int prinhoct(va_list arguments, char *buf, unsigned int ibuf);
-int prinhhex(va_list arguments, char *buf, unsigned int ibuf);
-int prinhupx(va_list arguments, char *buf, unsigned int ibuf);
-int prinpint(va_list arguments, char *buf, unsigned int ibuf);
-int prinnoct(va_list arguments, char *buf, unsigned int ibuf);
-int prinnhex(va_list arguments, char *buf, unsigned int ibuf);
-int prinnupx(va_list arguments, char *buf, unsigned int ibuf);
-int prinsint(va_list arguments, char *buf, unsigned int ibuf);
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int);
-int ev_print_func(const char *s, int index);
-unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
-int print_buf(char *buf, unsigned int nbuf);
-char *fill_binary_array(char *binary, long int int_in, int isneg, int limit);
-char *fill_oct_array(char *bnr, char *oct);
-char *fill_long_oct_array(char *bnr, char *oct);
-char *fill_short_oct_array(char *bnr, char *oct);
-char *fill_hex_array(char *bnr, char *hex, int isupp, int limit);
+	keep = num;
 
-#endif /* _MAIN_H_ */
+	while (keep > 9)
+	{
+		keep /= 10;
+		len++;
+	}
+
+	power = len - 2;
+
+	str = malloc(sizeof(char) * len);
+	if (str == NULL)
+	{
+		exit (1);
+	}
+	else if (k == 1)
+	{
+		str[0] = '-';
+		power -= 1;
+	}
+
+	for (m = 0; m < power; m++)
+	{
+		i *= 10;
+	}
+	while (i >= 1)
+	{
+		str[k] = ((num / i) % 10) + '0';
+		i /= 10;
+		k++;
+	}
+	str[k] = '\0';
+	return (str);
+}
