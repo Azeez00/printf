@@ -40,7 +40,7 @@ str - Some variable of type char *
 returns 1 if malloc operation is unsuccessful
 .SH AUTHORS
 .P
-Written by \fBABUKA VICTOR\fR and \fBALABI KHALID\fR.
+Written by \Azeez Abdullah\fR and \Sowemimo Aisha\fR.
 .SH SEE ALSO
 .P
 MAN printf(3)
